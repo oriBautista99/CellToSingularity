@@ -1,4 +1,7 @@
 package model.enums;
 
-public class EstadoElemento {
+public enum EstadoElemento {
+    BLOCKED,
+    ENABLED,
+    ACTIVE
 }
