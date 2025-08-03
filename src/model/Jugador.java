@@ -21,6 +21,10 @@ public class Jugador {
         recursos.put("Ideas", new Recurso("Ideas", 0, 0));
     }
 
+    public void agregarRecurso(Recurso recurso) {
+        this.recursos.putIfAbsent(recurso.getTipo(), recurso);
+    }
+
     public String getNombre() {
         return nombre;
     }
