@@ -5,10 +5,10 @@ public class Recurso {
     private double cantidad;
     private double tasaGeneracion;
 
-    public Recurso(String tipo) {
+    public Recurso(String tipo, double cantidad,double tasaGeneracion) {
         this.tipo = tipo;
-        this.cantidad = 0;
-        this.tasaGeneracion = 0;
+        this.cantidad = cantidad;
+        this.tasaGeneracion = tasaGeneracion;
     }
 
     public String getTipo() {
