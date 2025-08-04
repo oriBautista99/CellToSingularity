@@ -6,7 +6,7 @@ public class Jugador {
     private String nombre;
     private Map<String, Recurso> recursos; // tipo → recurso (entropía, ideas, etc.)
     private Map<String, ElementoEvolutivo> elementosComprados; // nombre → elemento
-    private int clickPower;
+    private double clickPower;
     private int totalClicks;
 
     public Jugador(String nombre) {
@@ -25,8 +25,12 @@ public class Jugador {
         return nombre;
     }
 
-    public int getClickPower() {
+    public double getClickPower() {
         return clickPower;
+    }
+
+    public void setClickPower(double clickPower) {
+        this.clickPower = clickPower;
     }
 
     public void hacerClick() {
@@ -74,6 +78,10 @@ public class Jugador {
 
     public Set<String> getElementosDesbloqueados() {
         return elementosComprados.keySet();
+    }
+
+    public Collection<ElementoEvolutivo> getElementosComprados() {
+        return elementosComprados.values();
     }
 
     public Collection<ElementoEvolutivo> getElementosActivos() {
