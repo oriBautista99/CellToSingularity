@@ -7,12 +7,14 @@ public class ElementoEvolutivo {
     private String nombre;
     private Map<String, Double> costo; // Recurso → cantidad
     private List<String> requisitos; // Nombres de otros elementos requeridos
-    private double produccion;
+    private double produccionBase;
     private String tipoRecursoProducido;
     private EstadoElemento estado;
     private int nivelMax;
     private int nivelActual;
     private int tiempoDesbloqueo; // En segundos
+    private double multiplicadorMejora = 1.0;
+
 
     public ElementoEvolutivo(String nombre, Map<String, Double> costo, List<String> requisitos,
                              double produccion, String tipoRecursoProducido,
@@ -20,7 +22,7 @@ public class ElementoEvolutivo {
         this.nombre = nombre;
         this.costo = costo;
         this.requisitos = requisitos;
-        this.produccion = produccion;
+        this.produccionBase = produccion;
         this.tipoRecursoProducido = tipoRecursoProducido;
         this.estado = EstadoElemento.BLOCKED;
         this.nivelMax = nivelMax;
@@ -40,8 +42,20 @@ public class ElementoEvolutivo {
         return nivelActual;
     }
 
+    public double getProduccionActual() {
+        return produccionBase * Math.pow(1.15, nivelActual) * multiplicadorMejora;
+    }
+
+    public void aplicarMultiplicador(double extra) {
+        multiplicadorMejora *= extra;
+    }
+
     public double getProduccion() {
-        return produccion * nivelActual;
+        return produccionBase;
+    }
+
+    public void setProduccion(double produccionBase) {
+        this.produccionBase = produccionBase;
     }
 
     public String getTipoRecursoProducido() {
