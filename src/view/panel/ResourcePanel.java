@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class ResourcePanel extends JPanel {
 
-    private final JLabel entropyLabel   = new JLabel("Entropía: 0");
+    private final JLabel entropyLabel   = new JLabel("Entropia: 0");
     private final JLabel productionLabel= new JLabel("Producción: 0");
     private final JLabel levelLabel     = new JLabel("Clicks: 0");
 
@@ -32,8 +32,10 @@ public class ResourcePanel extends JPanel {
                 .mapToDouble(ElementoEvolutivo::getProduccionBase).sum();
         int clicks = jugador.getTotalClicks();
 
-        entropyLabel.setText("Entropía: " + (int) entropia);
+        entropyLabel.setText("Entropia: " + (int) entropia);
         productionLabel.setText("Producción: " + (int) produccion);
-        levelLabel.setText("Nivel: " + clicks);
+        levelLabel.setText("Clicks: " + clicks);
+
+        System.out.println("SE ACTUALIZA LA ENTROPIA - refresh - ResourcePanel");
     }
 }

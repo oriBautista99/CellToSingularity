@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Jugador {
     private String nombre;
-    private Map<String, Recurso> recursos; // tipo → recurso (entropía, ideas, etc.)
+    private Map<String, Recurso> recursos; // tipo → recurso (Entropia, ideas, etc.)
     private Map<String, ElementoEvolutivo> elementosComprados; // nombre → elemento
     private double clickPower;
     private int totalClicks;
@@ -17,7 +17,7 @@ public class Jugador {
         this.totalClicks = 0;
 
         // Inicializar recursos básicos
-        recursos.put("Entropía", new Recurso("Entropía", 0, 0));
+        recursos.put("Entropia", new Recurso("Entropia", 0, 0));
         recursos.put("Ideas", new Recurso("Ideas", 0, 0));
     }
 
@@ -35,7 +35,8 @@ public class Jugador {
 
     public void hacerClick() {
         totalClicks++;
-        aumentarRecurso("Entropía", clickPower);
+        aumentarRecurso("Entropia", clickPower);
+        System.out.println("Click! Entropía ahora: " + getCantidadRecurso("Entropia"));
     }
 
     public void aumentarRecurso(String tipo, double cantidad) {
@@ -106,7 +107,7 @@ public class Jugador {
         totalClicks = 0;
         elementosComprados.clear();
         recursos.clear();
-        recursos.put("Entropía", new Recurso("Entropía", 0, 0));
+        recursos.put("Entropia", new Recurso("Entropia", 0, 0));
         recursos.put("Ideas", new Recurso("Ideas", 0, 0));
         clickPower = 1;
     }

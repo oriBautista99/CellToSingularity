@@ -4,13 +4,27 @@ import controller.GameController;
 import model.ElementoEvolutivo;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultTreeModel;
+import java.awt.*;
 import java.util.Optional;
 
 public class ShopPanel extends JPanel {
-    private JList<String> itemsList;
 
     public ShopPanel(GameController gameController) {
-        itemsList = new JList<>(
+
+        setLayout(new BorderLayout());
+
+        DefaultTreeModel modelo = new DefaultTreeModel(gameController.construirArbolCompleto());
+        JTree arbol = new JTree(modelo);
+        arbol.setCellRenderer(new EvolucionTreeCellRenderer());
+        JScrollPane scroll = new JScrollPane(arbol);
+        add(scroll, BorderLayout.WEST);
+
+        for (int i = 0; i < arbol.getRowCount(); i++) {
+            arbol.expandRow(i);
+        }
+
+       /* itemsList = new JList<>(
                 gameController.getTodosLosElementos().stream()
                         .map(ElementoEvolutivo::getNombre)
                         .toArray(String[]::new)
@@ -18,9 +32,9 @@ public class ShopPanel extends JPanel {
         add(new JScrollPane(itemsList));
 
         JButton buyBtn = new JButton("Comprar");
-        add(buyBtn);
+        add(buyBtn);*/
 
-        buyBtn.addActionListener(e -> {
+        /* buyBtn.addActionListener(e -> {
             String nombre = itemsList.getSelectedValue();
             Optional<ElementoEvolutivo> opt = gameController.getTodosLosElementos().stream()
                     .filter(el -> el.getNombre().equals(nombre))
@@ -28,6 +42,6 @@ public class ShopPanel extends JPanel {
             opt.ifPresent(gameController.getJugador()::comprarElemento);
             //String selected = itemsList.getSelectedValue();
             //GameController.get().onBuy(selected);
-        });
+        });*/
     }
 }

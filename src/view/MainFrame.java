@@ -18,7 +18,7 @@ public class MainFrame extends JFrame {
         add(new ClickButtonPanel(gameController), BorderLayout.NORTH);
         add(new ResourcePanel(gameController), BorderLayout.WEST);
         add(new EvolutionTreePanel(gameController), BorderLayout.CENTER);
-        add(new ShopPanel(gameController), BorderLayout.EAST);
+        //add(new ShopPanel(gameController), BorderLayout.CENTER);
 
         // ... configuración básica
         setDefaultCloseOperation(EXIT_ON_CLOSE);

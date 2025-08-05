@@ -5,7 +5,7 @@ public class Recurso {
     private double cantidad;
     private double tasaGeneracion;
 
-    public Recurso(String tipo, double cantidad,double tasaGeneracion) {
+    public Recurso(String tipo, double cantidad, double tasaGeneracion) {
         this.tipo = tipo;
         this.cantidad = cantidad;
         this.tasaGeneracion = tasaGeneracion;

@@ -1,146 +1,177 @@
 [
   {
     "nombre": "Molécula Orgánica",
-    "costo": { "Entropía": 10 },
+    "costo": { "Entropia": 10 },
     "produccionBase": 0.1,
-    "tipoRecursoProducido": "Entropía",
+    "tipoRecursoProducido": "Entropia",
     "requisitos": [],
     "nivelMax": 5,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Célula Primordial",
-    "costo": { "Entropía": 25 },
-    "produccionBase": 0.3,
-    "tipoRecursoProducido": "Entropía",
-    "requisitos": ["Molécula Orgánica"],
-    "nivelMax": 5,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "ADN",
-    "costo": { "Entropía": 40 },
-    "produccionBase": 0.6,
-    "tipoRecursoProducido": "Entropía",
-    "requisitos": ["Célula Primordial"],
-    "nivelMax": 3,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Reproducción Celular",
-    "costo": { "Entropía": 75 },
-    "produccionBase": 1.0,
-    "tipoRecursoProducido": "Entropía",
-    "requisitos": ["ADN"],
-    "nivelMax": 4,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Organismo Multicelular",
-    "costo": { "Entropía": 120 },
-    "produccionBase": 0.5,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Reproducción Celular"],
-    "nivelMax": 5,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Sistema Nervioso",
-    "costo": { "Entropía": 200, "Ideas": 10 },
-    "produccionBase": 1.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Organismo Multicelular"],
-    "nivelMax": 4,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Cerebro Primitivo",
-    "costo": { "Entropía": 300, "Ideas": 20 },
-    "produccionBase": 2.5,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Sistema Nervioso"],
-    "nivelMax": 4,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Homo Habilis",
-    "costo": { "Entropía": 500, "Ideas": 40 },
-    "produccionBase": 4.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Cerebro Primitivo"],
-    "nivelMax": 3,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Homo Sapiens",
-    "costo": { "Entropía": 800, "Ideas": 80 },
-    "produccionBase": 7.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Homo Habilis"],
-    "nivelMax": 3,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Lenguaje Complejo",
-    "costo": { "Entropía": 1000, "Ideas": 150 },
-    "produccionBase": 10.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Homo Sapiens"],
-    "nivelMax": 3,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Agricultura",
-    "costo": { "Entropía": 1500, "Ideas": 250 },
-    "produccionBase": 15.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Lenguaje Complejo"],
-    "nivelMax": 3,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Revolución Industrial",
-    "costo": { "Entropía": 3000, "Ideas": 500 },
-    "produccionBase": 25.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Agricultura"],
-    "nivelMax": 3,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Computadora",
-    "costo": { "Entropía": 6000, "Ideas": 1000 },
-    "produccionBase": 50.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Revolución Industrial"],
-    "nivelMax": 3,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Internet",
-    "costo": { "Entropía": 10000, "Ideas": 2000 },
-    "produccionBase": 75.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Computadora"],
-    "nivelMax": 3,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Inteligencia Artificial",
-    "costo": { "Entropía": 20000, "Ideas": 5000 },
-    "produccionBase": 120.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Internet"],
-    "nivelMax": 3,
-    "estado": "BLOCKED"
-  },
-  {
-    "nombre": "Singularidad",
-    "costo": { "Entropía": 50000, "Ideas": 10000 },
-    "produccionBase": 0.0,
-    "tipoRecursoProducido": "Ideas",
-    "requisitos": ["Inteligencia Artificial"],
-    "nivelMax": 1,
-    "estado": "BLOCKED"
+    "estado": "BLOCKED",
+    "hijos": [
+      {
+        "nombre": "Célula Primordial",
+        "costo": { "Entropia": 25 },
+        "produccionBase": 0.3,
+        "tipoRecursoProducido": "Entropia",
+        "requisitos": ["Molécula Orgánica"],
+        "nivelMax": 5,
+        "estado": "BLOCKED",
+        "hijos": [
+          {
+            "nombre": "ADN",
+            "costo": { "Entropia": 40 },
+            "produccionBase": 0.6,
+            "tipoRecursoProducido": "Entropia",
+            "requisitos": ["Célula Primordial"],
+            "nivelMax": 3,
+            "estado": "BLOCKED",
+            "hijos": [
+              {
+                "nombre": "Reproducción Celular",
+                "costo": { "Entropia": 75 },
+                "produccionBase": 1.0,
+                "tipoRecursoProducido": "Entropia",
+                "requisitos": ["ADN"],
+                "nivelMax": 4,
+                "estado": "BLOCKED",
+                "hijos": [
+                  {
+                    "nombre": "Organismo Multicelular",
+                    "costo": { "Entropia": 120 },
+                    "produccionBase": 0.5,
+                    "tipoRecursoProducido": "Ideas",
+                    "requisitos": ["Reproducción Celular"],
+                    "nivelMax": 5,
+                    "estado": "BLOCKED",
+                    "hijos": [
+                      {
+                        "nombre": "Sistema Nervioso",
+                        "costo": { "Entropia": 200, "Ideas": 10 },
+                        "produccionBase": 1.0,
+                        "tipoRecursoProducido": "Ideas",
+                        "requisitos": ["Organismo Multicelular"],
+                        "nivelMax": 4,
+                        "estado": "BLOCKED",
+                        "hijos": [
+                          {
+                            "nombre": "Cerebro Primitivo",
+                            "costo": { "Entropia": 300, "Ideas": 20 },
+                            "produccionBase": 2.5,
+                            "tipoRecursoProducido": "Ideas",
+                            "requisitos": ["Sistema Nervioso"],
+                            "nivelMax": 4,
+                            "estado": "BLOCKED",
+                            "hijos": [
+                              {
+                                "nombre": "Homo Habilis",
+                                "costo": { "Entropia": 500, "Ideas": 40 },
+                                "produccionBase": 4.0,
+                                "tipoRecursoProducido": "Ideas",
+                                "requisitos": ["Cerebro Primitivo"],
+                                "nivelMax": 3,
+                                "estado": "BLOCKED",
+                                "hijos": [
+                                  {
+                                    "nombre": "Homo Sapiens",
+                                    "costo": { "Entropia": 800, "Ideas": 80 },
+                                    "produccionBase": 7.0,
+                                    "tipoRecursoProducido": "Ideas",
+                                    "requisitos": ["Homo Habilis"],
+                                    "nivelMax": 3,
+                                    "estado": "BLOCKED",
+                                    "hijos": [
+                                      {
+                                        "nombre": "Lenguaje Complejo",
+                                        "costo": { "Entropia": 1000, "Ideas": 150 },
+                                        "produccionBase": 10.0,
+                                        "tipoRecursoProducido": "Ideas",
+                                        "requisitos": ["Homo Sapiens"],
+                                        "nivelMax": 3,
+                                        "estado": "BLOCKED",
+                                        "hijos": [
+                                          {
+                                            "nombre": "Agricultura",
+                                            "costo": { "Entropia": 1500, "Ideas": 250 },
+                                            "produccionBase": 15.0,
+                                            "tipoRecursoProducido": "Ideas",
+                                            "requisitos": ["Lenguaje Complejo"],
+                                            "nivelMax": 3,
+                                            "estado": "BLOCKED",
+                                            "hijos": [
+                                              {
+                                                "nombre": "Revolución Industrial",
+                                                "costo": { "Entropia": 3000, "Ideas": 500 },
+                                                "produccionBase": 25.0,
+                                                "tipoRecursoProducido": "Ideas",
+                                                "requisitos": ["Agricultura"],
+                                                "nivelMax": 3,
+                                                "estado": "BLOCKED",
+                                                "hijos": [
+                                                  {
+                                                    "nombre": "Computadora",
+                                                    "costo": { "Entropia": 6000, "Ideas": 1000 },
+                                                    "produccionBase": 50.0,
+                                                    "tipoRecursoProducido": "Ideas",
+                                                    "requisitos": ["Revolución Industrial"],
+                                                    "nivelMax": 3,
+                                                    "estado": "BLOCKED",
+                                                    "hijos": [
+                                                      {
+                                                        "nombre": "Internet",
+                                                        "costo": { "Entropia": 10000, "Ideas": 2000 },
+                                                        "produccionBase": 75.0,
+                                                        "tipoRecursoProducido": "Ideas",
+                                                        "requisitos": ["Computadora"],
+                                                        "nivelMax": 3,
+                                                        "estado": "BLOCKED",
+                                                        "hijos": [
+                                                          {
+                                                            "nombre": "Inteligencia Artificial",
+                                                            "costo": { "Entropia": 20000, "Ideas": 5000 },
+                                                            "produccionBase": 120.0,
+                                                            "tipoRecursoProducido": "Ideas",
+                                                            "requisitos": ["Internet"],
+                                                            "nivelMax": 3,
+                                                            "estado": "BLOCKED",
+                                                            "hijos": [
+                                                              {
+                                                                "nombre": "Singularidad",
+                                                                "costo": { "Entropia": 50000, "Ideas": 10000 },
+                                                                "produccionBase": 0.0,
+                                                                "tipoRecursoProducido": "Ideas",
+                                                                "requisitos": ["Inteligencia Artificial"],
+                                                                "nivelMax": 1,
+                                                                "estado": "BLOCKED",
+                                                                "hijos": []
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
