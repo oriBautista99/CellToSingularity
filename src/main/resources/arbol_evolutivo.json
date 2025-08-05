@@ -4,7 +4,7 @@
     "costo": { "Entropía": 10 },
     "produccionBase": 0.1,
     "tipoRecursoProducido": "Entropía",
-    "requisitosPrevios": [],
+    "requisitos": [],
     "nivelMax": 5,
     "estado": "BLOCKED"
   },
@@ -13,7 +13,7 @@
     "costo": { "Entropía": 25 },
     "produccionBase": 0.3,
     "tipoRecursoProducido": "Entropía",
-    "requisitosPrevios": ["Molécula Orgánica"],
+    "requisitos": ["Molécula Orgánica"],
     "nivelMax": 5,
     "estado": "BLOCKED"
   },
@@ -22,7 +22,7 @@
     "costo": { "Entropía": 40 },
     "produccionBase": 0.6,
     "tipoRecursoProducido": "Entropía",
-    "requisitosPrevios": ["Célula Primordial"],
+    "requisitos": ["Célula Primordial"],
     "nivelMax": 3,
     "estado": "BLOCKED"
   },
@@ -31,7 +31,7 @@
     "costo": { "Entropía": 75 },
     "produccionBase": 1.0,
     "tipoRecursoProducido": "Entropía",
-    "requisitosPrevios": ["ADN"],
+    "requisitos": ["ADN"],
     "nivelMax": 4,
     "estado": "BLOCKED"
   },
@@ -40,7 +40,7 @@
     "costo": { "Entropía": 120 },
     "produccionBase": 0.5,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Reproducción Celular"],
+    "requisitos": ["Reproducción Celular"],
     "nivelMax": 5,
     "estado": "BLOCKED"
   },
@@ -49,7 +49,7 @@
     "costo": { "Entropía": 200, "Ideas": 10 },
     "produccionBase": 1.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Organismo Multicelular"],
+    "requisitos": ["Organismo Multicelular"],
     "nivelMax": 4,
     "estado": "BLOCKED"
   },
@@ -58,7 +58,7 @@
     "costo": { "Entropía": 300, "Ideas": 20 },
     "produccionBase": 2.5,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Sistema Nervioso"],
+    "requisitos": ["Sistema Nervioso"],
     "nivelMax": 4,
     "estado": "BLOCKED"
   },
@@ -67,7 +67,7 @@
     "costo": { "Entropía": 500, "Ideas": 40 },
     "produccionBase": 4.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Cerebro Primitivo"],
+    "requisitos": ["Cerebro Primitivo"],
     "nivelMax": 3,
     "estado": "BLOCKED"
   },
@@ -76,7 +76,7 @@
     "costo": { "Entropía": 800, "Ideas": 80 },
     "produccionBase": 7.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Homo Habilis"],
+    "requisitos": ["Homo Habilis"],
     "nivelMax": 3,
     "estado": "BLOCKED"
   },
@@ -85,7 +85,7 @@
     "costo": { "Entropía": 1000, "Ideas": 150 },
     "produccionBase": 10.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Homo Sapiens"],
+    "requisitos": ["Homo Sapiens"],
     "nivelMax": 3,
     "estado": "BLOCKED"
   },
@@ -94,7 +94,7 @@
     "costo": { "Entropía": 1500, "Ideas": 250 },
     "produccionBase": 15.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Lenguaje Complejo"],
+    "requisitos": ["Lenguaje Complejo"],
     "nivelMax": 3,
     "estado": "BLOCKED"
   },
@@ -103,7 +103,7 @@
     "costo": { "Entropía": 3000, "Ideas": 500 },
     "produccionBase": 25.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Agricultura"],
+    "requisitos": ["Agricultura"],
     "nivelMax": 3,
     "estado": "BLOCKED"
   },
@@ -112,7 +112,7 @@
     "costo": { "Entropía": 6000, "Ideas": 1000 },
     "produccionBase": 50.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Revolución Industrial"],
+    "requisitos": ["Revolución Industrial"],
     "nivelMax": 3,
     "estado": "BLOCKED"
   },
@@ -121,7 +121,7 @@
     "costo": { "Entropía": 10000, "Ideas": 2000 },
     "produccionBase": 75.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Computadora"],
+    "requisitos": ["Computadora"],
     "nivelMax": 3,
     "estado": "BLOCKED"
   },
@@ -130,7 +130,7 @@
     "costo": { "Entropía": 20000, "Ideas": 5000 },
     "produccionBase": 120.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Internet"],
+    "requisitos": ["Internet"],
     "nivelMax": 3,
     "estado": "BLOCKED"
   },
@@ -139,7 +139,7 @@
     "costo": { "Entropía": 50000, "Ideas": 10000 },
     "produccionBase": 0.0,
     "tipoRecursoProducido": "Ideas",
-    "requisitosPrevios": ["Inteligencia Artificial"],
+    "requisitos": ["Inteligencia Artificial"],
     "nivelMax": 1,
     "estado": "BLOCKED"
   }

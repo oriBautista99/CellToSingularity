@@ -16,6 +16,7 @@ public class GameController {
         this.jugador = jugador;
         this.todosLosElementos = elementosIniciales;
         this.mejorasDisponibles = new ArrayList<>();
+        this.timerManager = new TimerManager();
         iniciarTimer();
     }
 

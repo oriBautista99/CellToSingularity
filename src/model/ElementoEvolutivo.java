@@ -15,6 +15,7 @@ public class ElementoEvolutivo {
     private int tiempoDesbloqueo; // En segundos
     private double multiplicadorMejora = 1.0;
 
+    public ElementoEvolutivo() {}
 
     public ElementoEvolutivo(String nombre, Map<String, Double> costo, List<String> requisitos,
                              double produccion, String tipoRecursoProducido,
@@ -28,6 +29,14 @@ public class ElementoEvolutivo {
         this.nivelMax = nivelMax;
         this.nivelActual = 0;
         this.tiempoDesbloqueo = tiempoDesbloqueo;
+    }
+
+    public int getNivelMax() {
+        return nivelMax;
+    }
+
+    public void setNivelMax(int nivelMax) {
+        this.nivelMax = nivelMax;
     }
 
     public String getNombre() {
@@ -50,11 +59,11 @@ public class ElementoEvolutivo {
         multiplicadorMejora *= extra;
     }
 
-    public double getProduccion() {
+    public double getProduccionBase() {
         return produccionBase;
     }
 
-    public void setProduccion(double produccionBase) {
+    public void setProduccionBase(double produccionBase) {
         this.produccionBase = produccionBase;
     }
 

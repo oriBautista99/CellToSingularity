@@ -1,13 +1,14 @@
 package view.panel;
 
 import javax.swing.*;
+import controller.GameController;
 
 public class ClickButtonPanel extends JPanel {
     private JButton clickBtn = new JButton("¡Click!");
-    public ClickButtonPanel() {
+    public ClickButtonPanel(GameController gameController) {
         add(clickBtn);
         clickBtn.addActionListener(e ->
-                GameController.get().onCellClick()
+                gameController.hacerClick()
         );
     }
 }
