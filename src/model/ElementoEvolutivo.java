@@ -15,6 +15,9 @@ public class ElementoEvolutivo {
     private int tiempoDesbloqueo; // En segundos
     private double multiplicadorMejora = 1.0;
 
+    private List<ElementoEvolutivo> hijos = new ArrayList<>();
+
+    public ElementoEvolutivo() {}
 
     public ElementoEvolutivo(String nombre, Map<String, Double> costo, List<String> requisitos,
                              double produccion, String tipoRecursoProducido,
@@ -28,6 +31,22 @@ public class ElementoEvolutivo {
         this.nivelMax = nivelMax;
         this.nivelActual = 0;
         this.tiempoDesbloqueo = tiempoDesbloqueo;
+    }
+
+    public int getNivelMax() {
+        return nivelMax;
+    }
+
+    public void setNivelMax(int nivelMax) {
+        this.nivelMax = nivelMax;
+    }
+
+    public List<ElementoEvolutivo> getHijos() {
+        return hijos;
+    }
+
+    public void setHijos(List<ElementoEvolutivo> hijos) {
+        this.hijos = hijos;
     }
 
     public String getNombre() {
@@ -50,11 +69,11 @@ public class ElementoEvolutivo {
         multiplicadorMejora *= extra;
     }
 
-    public double getProduccion() {
+    public double getProduccionBase() {
         return produccionBase;
     }
 
-    public void setProduccion(double produccionBase) {
+    public void setProduccionBase(double produccionBase) {
         this.produccionBase = produccionBase;
     }
 
@@ -68,6 +87,10 @@ public class ElementoEvolutivo {
 
     public List<String> getRequisitos() {
         return requisitos;
+    }
+
+    public void setRequisitos(List<String> requisitos) {
+        this.requisitos = requisitos;
     }
 
     public boolean puedeMejorar() {
@@ -104,11 +127,18 @@ public class ElementoEvolutivo {
     }
 
     public boolean requisitosCumplidos(Set<String> elementosActivos) {
+        // deberia verificar que tiene los elementos evolutivos anteriores y la cantidad de recurso para desbloquear
+        // o crear otro estado que sea parar manejar visibilidad y otro habilitado
         for (String requisito : requisitos) {
             if (!elementosActivos.contains(requisito)) {
                 return false;
             }
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

@@ -4,6 +4,7 @@ import model.*;
 import model.enums.EstadoElemento;
 import util.TimerManager;
 
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.util.*;
 
 public class GameController {
@@ -12,10 +13,17 @@ public class GameController {
     private List<Mejora> mejorasDisponibles;
     private TimerManager timerManager;
 
+    private List<ElementoEvolutivo> arbolEvolutivoRaiz;
+    private boolean desbloqueo = false;
+
     public GameController(Jugador jugador, List<ElementoEvolutivo> elementosIniciales) {
         this.jugador = jugador;
-        this.todosLosElementos = elementosIniciales;
         this.mejorasDisponibles = new ArrayList<>();
+        this.timerManager = new TimerManager();
+        // Carga el árbol jerárquico
+        this.todosLosElementos= ElementoLoader.cargarDesdeJson();
+        this.arbolEvolutivoRaiz = new ArrayList<>();
+        recolectarTodosLosElementos(this.todosLosElementos, this.arbolEvolutivoRaiz);
         iniciarTimer();
     }
 
@@ -24,6 +32,13 @@ public class GameController {
             generarRecursosPasivos();
             verificarDesbloqueos();
         },1000);
+    }
+
+    private void recolectarTodosLosElementos(List<ElementoEvolutivo> origen, List<ElementoEvolutivo> acumulador) {
+        for (ElementoEvolutivo e : origen) {
+            acumulador.add(e);
+            recolectarTodosLosElementos(e.getHijos(), acumulador);
+        }
     }
 
     private void generarRecursosPasivos() {
@@ -35,11 +50,18 @@ public class GameController {
     }
 
     private void verificarDesbloqueos() {
-        for (ElementoEvolutivo e : todosLosElementos) {
-            if (e.getEstado() == EstadoElemento.BLOCKED && e.requisitosCumplidos(jugador.getElementosDesbloqueados())) {
-                e.desbloquear();
+        for (ElementoEvolutivo e : arbolEvolutivoRaiz) {
+            if (e.getEstado() == EstadoElemento.BLOCKED) {
+                boolean cumplidos = e.requisitosCumplidos(jugador.getElementosDesbloqueados());
+                if (cumplidos) {
+                    e.desbloquear();
+                    desbloqueo = true;
+                    System.out.println("🔓 " + e.getNombre() + " fue desbloqueado.");
+                }
             }
         }
+
+
     }
 
     public void detener() {
@@ -60,8 +82,7 @@ public class GameController {
 
     public boolean comprarElemento(ElementoEvolutivo elem) {
         if(elem.getEstado() == EstadoElemento.ENABLED && jugador.tieneRecursos(elem.getCosto())) {
-            jugador.descontarRecursos(elem.getCosto());
-            jugador.comprarElemento(elem); // cambiar a activos
+            jugador.comprarElemento(elem); // descuenta recursos
             elem.activar();
             return true;
         }
@@ -78,5 +99,23 @@ public class GameController {
 
     public void aplicarMejora(Mejora m) {
         m.aplicar(jugador);
+    }
+
+    public DefaultMutableTreeNode construirNodo(ElementoEvolutivo elemento) {
+        DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(elemento); // Usa .toString()
+        for (ElementoEvolutivo hijo : elemento.getHijos()) {
+            nodo.add(construirNodo(hijo));
+        }
+        return nodo;
+    }
+
+    public DefaultMutableTreeNode construirArbolCompleto() {
+        DefaultMutableTreeNode raizVisual = new DefaultMutableTreeNode("Evolucion");
+
+        for (ElementoEvolutivo raiz : arbolEvolutivoRaiz) {
+            raizVisual.add(construirNodo(raiz));
+        }
+
+        return raizVisual;
     }
 }
