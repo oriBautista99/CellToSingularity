@@ -112,7 +112,7 @@ public class GameController {
     public DefaultMutableTreeNode construirArbolCompleto() {
         DefaultMutableTreeNode raizVisual = new DefaultMutableTreeNode("Evolucion");
 
-        for (ElementoEvolutivo raiz : arbolEvolutivoRaiz) {
+        for (ElementoEvolutivo raiz : todosLosElementos) {
             raizVisual.add(construirNodo(raiz));
         }
 
