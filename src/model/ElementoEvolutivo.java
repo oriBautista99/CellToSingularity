@@ -14,7 +14,7 @@ public class ElementoEvolutivo {
     private int nivelActual;
     private int tiempoDesbloqueo; // En segundos
     private double multiplicadorMejora = 1.0;
-
+    private String imagenPath;
     private List<ElementoEvolutivo> hijos = new ArrayList<>();
 
     public ElementoEvolutivo() {}
@@ -59,6 +59,14 @@ public class ElementoEvolutivo {
 
     public int getNivelActual() {
         return nivelActual;
+    }
+
+    public String getImagenPath() {
+        return imagenPath;
+    }
+
+    public void setImagenPath(String imagenPath) {
+        this.imagenPath = imagenPath;
     }
 
     public double getProduccionActual() {

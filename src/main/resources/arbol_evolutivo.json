@@ -6,6 +6,7 @@
     "tipoRecursoProducido": "Entropia",
     "requisitos": [],
     "nivelMax": 5,
+    "imagenPath" : "img/molecula.png",
     "estado": "BLOCKED",
     "hijos": [
       {
@@ -15,6 +16,7 @@
         "tipoRecursoProducido": "Entropia",
         "requisitos": ["Molécula Orgánica"],
         "nivelMax": 5,
+        "imagenPath" : "img/celula.png",
         "estado": "BLOCKED",
         "hijos": [
           {
@@ -24,6 +26,7 @@
             "tipoRecursoProducido": "Entropia",
             "requisitos": ["Célula Primordial"],
             "nivelMax": 3,
+            "imagenPath" : "img/adn.png",
             "estado": "BLOCKED",
             "hijos": [
               {
@@ -33,6 +36,7 @@
                 "tipoRecursoProducido": "Entropia",
                 "requisitos": ["ADN"],
                 "nivelMax": 4,
+                "imagenPath" : "img/reproduccion.png",
                 "estado": "BLOCKED",
                 "hijos": [
                   {
@@ -42,6 +46,7 @@
                     "tipoRecursoProducido": "Ideas",
                     "requisitos": ["Reproducción Celular"],
                     "nivelMax": 5,
+                    "imagenPath" : "img/molecula.png",
                     "estado": "BLOCKED",
                     "hijos": [
                       {
@@ -51,6 +56,7 @@
                         "tipoRecursoProducido": "Ideas",
                         "requisitos": ["Organismo Multicelular"],
                         "nivelMax": 4,
+                        "imagenPath" : "img/nervioso.png",
                         "estado": "BLOCKED",
                         "hijos": [
                           {
@@ -60,6 +66,7 @@
                             "tipoRecursoProducido": "Ideas",
                             "requisitos": ["Sistema Nervioso"],
                             "nivelMax": 4,
+                            "imagenPath" : "img/cerebro.png",
                             "estado": "BLOCKED",
                             "hijos": [
                               {
@@ -69,6 +76,7 @@
                                 "tipoRecursoProducido": "Ideas",
                                 "requisitos": ["Cerebro Primitivo"],
                                 "nivelMax": 3,
+                                "imagenPath" : "img/molecula.png",
                                 "estado": "BLOCKED",
                                 "hijos": [
                                   {
@@ -78,6 +86,7 @@
                                     "tipoRecursoProducido": "Ideas",
                                     "requisitos": ["Homo Habilis"],
                                     "nivelMax": 3,
+                                    "imagenPath" : "img/molecula.png",
                                     "estado": "BLOCKED",
                                     "hijos": [
                                       {
@@ -87,6 +96,7 @@
                                         "tipoRecursoProducido": "Ideas",
                                         "requisitos": ["Homo Sapiens"],
                                         "nivelMax": 3,
+                                        "imagenPath" : "img/lenguaje.png",
                                         "estado": "BLOCKED",
                                         "hijos": [
                                           {
@@ -96,6 +106,7 @@
                                             "tipoRecursoProducido": "Ideas",
                                             "requisitos": ["Lenguaje Complejo"],
                                             "nivelMax": 3,
+                                            "imagenPath" : "img/agricultura.png",
                                             "estado": "BLOCKED",
                                             "hijos": [
                                               {
@@ -105,6 +116,7 @@
                                                 "tipoRecursoProducido": "Ideas",
                                                 "requisitos": ["Agricultura"],
                                                 "nivelMax": 3,
+                                                "imagenPath" : "img/industria.png",
                                                 "estado": "BLOCKED",
                                                 "hijos": [
                                                   {
@@ -114,6 +126,7 @@
                                                     "tipoRecursoProducido": "Ideas",
                                                     "requisitos": ["Revolución Industrial"],
                                                     "nivelMax": 3,
+                                                    "imagenPath" : "img/computer.png",
                                                     "estado": "BLOCKED",
                                                     "hijos": [
                                                       {
@@ -123,6 +136,7 @@
                                                         "tipoRecursoProducido": "Ideas",
                                                         "requisitos": ["Computadora"],
                                                         "nivelMax": 3,
+                                                        "imagenPath" : "img/internet.png",
                                                         "estado": "BLOCKED",
                                                         "hijos": [
                                                           {
@@ -132,6 +146,7 @@
                                                             "tipoRecursoProducido": "Ideas",
                                                             "requisitos": ["Internet"],
                                                             "nivelMax": 3,
+                                                            "imagenPath" : "img/ia.png",
                                                             "estado": "BLOCKED",
                                                             "hijos": [
                                                               {
@@ -141,6 +156,7 @@
                                                                 "tipoRecursoProducido": "Ideas",
                                                                 "requisitos": ["Inteligencia Artificial"],
                                                                 "nivelMax": 1,
+                                                                "imagenPath" : "img/singularity.png",
                                                                 "estado": "BLOCKED",
                                                                 "hijos": []
                                                               }
