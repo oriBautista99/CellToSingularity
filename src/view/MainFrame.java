@@ -15,9 +15,13 @@ public class MainFrame extends JFrame {
         setLayout(new BorderLayout());
 
         // Inyectar el gameControlle en los paneles
-        add(new ClickButtonPanel(gameController), BorderLayout.NORTH);
-        add(new ResourcePanel(gameController), BorderLayout.WEST);
+        add(new ClickButtonPanel(gameController), BorderLayout.WEST);
+        ResourcePanel resourceBar = new ResourcePanel(gameController);
+        gameController.setResourceBarPanel(resourceBar);
+        add(resourceBar, BorderLayout.NORTH);
+
         add(new EvolutionTreePanel(gameController), BorderLayout.CENTER);
+
         //add(new ShopPanel(gameController), BorderLayout.CENTER);
 
         // ... configuración básica

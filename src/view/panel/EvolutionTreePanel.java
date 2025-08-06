@@ -2,11 +2,10 @@ package view.panel;
 
 import controller.GameController;
 import model.ElementoEvolutivo;
+import model.enums.EstadoElemento;
 
 import javax.swing.*;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreePath;
+import javax.swing.tree.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -28,11 +27,7 @@ public class EvolutionTreePanel extends JPanel {
         JScrollPane scroll = new JScrollPane(tree);
         add(scroll);
 
-
-
-        for (int i = 0; i < tree.getRowCount(); i++) {
-            tree.expandRow(i);
-        }
+        gameController.setOnTreeUpdate(() -> SwingUtilities.invokeLater(this::refrescarArbol));
 
         // Botón Comprar
         btnComprar = new JButton("Comprar");
@@ -60,10 +55,68 @@ public class EvolutionTreePanel extends JPanel {
                     }
 
                 }
+
+                if( e.getClickCount() == 1){
+                    gameController.hacerClick();
+                }
             }
         });
 
 
+    }
+
+    public void refrescarArbol() {
+        System.out.println("refrescarArbol");
+        DefaultTreeModel model = new DefaultTreeModel(gameController.construirArbolCompleto());
+        tree.setModel(model);
+        expandUnlockedNodes((DefaultMutableTreeNode) model.getRoot());
+        tree.updateUI();
+    }
+
+
+    private void expandUnlockedNodes(DefaultMutableTreeNode node) {
+        Object userObject = node.getUserObject();
+
+        if (userObject instanceof ElementoEvolutivo) {
+            ElementoEvolutivo elemento = (ElementoEvolutivo) userObject;
+
+            // Si está desbloqueado o activo, expandimos el nodo
+            if (elemento.getEstado() == EstadoElemento.ENABLED || elemento.getEstado() == EstadoElemento.ACTIVE) {
+                TreePath path = new TreePath(node.getPath());
+                tree.expandPath(path);
+
+                // Recorremos hijos
+                for (int i = 0; i < node.getChildCount(); i++) {
+                    DefaultMutableTreeNode child = (DefaultMutableTreeNode) node.getChildAt(i);
+                    expandUnlockedNodes(child); // Recursión
+                }
+            }
+        } else {
+            // Nodo raíz u otro texto, expandir por defecto
+            TreePath path = new TreePath(node.getPath());
+            tree.expandPath(path);
+
+            // Recorremos hijos
+            for (int i = 0; i < node.getChildCount(); i++) {
+                DefaultMutableTreeNode child = (DefaultMutableTreeNode) node.getChildAt(i);
+                expandUnlockedNodes(child);
+            }
+        }
+    }
+
+    private boolean shouldExpand(DefaultMutableTreeNode node) {
+        // Recorre desde la raíz hasta el nodo actual verificando que todos estén desbloqueados
+        TreeNode[] path = node.getPath();
+        for (TreeNode treeNode : path) {
+            Object obj = ((DefaultMutableTreeNode) treeNode).getUserObject();
+            if (obj instanceof ElementoEvolutivo) {
+                ElementoEvolutivo e = (ElementoEvolutivo) obj;
+                if (e.getEstado().equals("BLOCKED")) {
+                    return false; // No expandir si algún nodo del camino está bloqueado
+                }
+            }
+        }
+        return true;
     }
 
     private void intentarComprarElementoSeleccionado() {
@@ -81,7 +134,7 @@ public class EvolutionTreePanel extends JPanel {
                 boolean comprado = gameController.comprarElemento(elem);
                 if (comprado) {
                     JOptionPane.showMessageDialog(this, "¡Elemento comprado: " + elem.getNombre() + "!");
-                    tree.repaint(); // refresca colores/íconos
+                    refrescarArbol(); // refresca colores/íconos
                 } else {
                     JOptionPane.showMessageDialog(this, "No tienes recursos o el elemento no está habilitado.");
                 }

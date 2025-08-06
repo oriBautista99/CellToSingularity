@@ -3,6 +3,7 @@ package controller;
 import model.*;
 import model.enums.EstadoElemento;
 import util.TimerManager;
+import view.panel.ResourcePanel;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.util.*;
@@ -15,6 +16,8 @@ public class GameController {
 
     private List<ElementoEvolutivo> arbolEvolutivoRaiz;
     private boolean desbloqueo = false;
+    private Runnable onTreeUpdate;
+    private ResourcePanel resourceBar;
 
     public GameController(Jugador jugador, List<ElementoEvolutivo> elementosIniciales) {
         this.jugador = jugador;
@@ -57,11 +60,22 @@ public class GameController {
                     e.desbloquear();
                     desbloqueo = true;
                     System.out.println("🔓 " + e.getNombre() + " fue desbloqueado.");
+                    if (desbloqueo && onTreeUpdate != null) {
+                        onTreeUpdate.run(); // Notificar a la vista que hay cambios
+                    }
                 }
             }
         }
 
+    }
 
+
+    public void setOnTreeUpdate(Runnable callback) {
+        this.onTreeUpdate = callback;
+    }
+
+    public void setResourceBarPanel(ResourcePanel panel) {
+        this.resourceBar = panel;
     }
 
     public void detener() {
@@ -78,6 +92,9 @@ public class GameController {
 
     public void hacerClick() {
         jugador.hacerClick();
+        /*if (resourceBar != null) {
+            resourceBar.actualizarRecursos(jugador); // actualiza vista
+        }*/
     }
 
     public boolean comprarElemento(ElementoEvolutivo elem) {
