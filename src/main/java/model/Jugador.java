@@ -36,7 +36,6 @@ public class Jugador {
     public void hacerClick() {
         totalClicks++;
         aumentarRecurso("Entropia", clickPower);
-        System.out.println("Click! Entropía ahora: " + getCantidadRecurso("Entropia"));
     }
 
     public void aumentarRecurso(String tipo, double cantidad) {

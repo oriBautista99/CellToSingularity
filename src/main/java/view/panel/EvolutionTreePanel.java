@@ -15,10 +15,12 @@ public class EvolutionTreePanel extends JPanel {
     private JTree tree;
     private JButton btnComprar;
     private GameController gameController;
+    private ResourcePanel resourcePanel;
 
-    public EvolutionTreePanel(GameController gameController) {
+    public EvolutionTreePanel(GameController gameController, ResourcePanel resourcePanel) {
 
         this.gameController = gameController;
+        this.resourcePanel = resourcePanel;
 
         setLayout(new BorderLayout());
         DefaultTreeModel root = new DefaultTreeModel(gameController.construirArbolCompleto());
@@ -30,10 +32,10 @@ public class EvolutionTreePanel extends JPanel {
         gameController.setOnTreeUpdate(() -> SwingUtilities.invokeLater(this::refrescarArbol));
 
         // Botón Comprar
-        btnComprar = new JButton("Comprar");
+        /*btnComprar = new JButton("Comprar");
         add(btnComprar, BorderLayout.SOUTH);
 
-        btnComprar.addActionListener(e -> intentarComprarElementoSeleccionado());
+        btnComprar.addActionListener(e -> intentarComprarElementoSeleccionado());*/
 
         tree.addTreeSelectionListener(e -> {
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
@@ -57,7 +59,31 @@ public class EvolutionTreePanel extends JPanel {
                 }
 
                 if( e.getClickCount() == 1){
+                    double cantidad = gameController.getJugador().getClickPower();
                     gameController.hacerClick();
+                    resourcePanel.refresh(gameController);
+
+                    Component root = SwingUtilities.getRoot(EvolutionTreePanel.this);
+                    if (root instanceof JFrame) {
+                        JFrame frame = (JFrame) root;
+                        JLayeredPane layeredPane = ((JFrame) SwingUtilities.getRoot(EvolutionTreePanel.this)).getLayeredPane();
+
+                        Point panelLocation = tree.getLocationOnScreen();
+                        Point mouseLocation = e.getLocationOnScreen();
+                        int relativeX = mouseLocation.x - panelLocation.x;
+                        int relativeY = mouseLocation.y - panelLocation.y;
+
+                        ImageIcon iconoOriginal = new ImageIcon(getClass().getResource("/icons/entropia.png"));
+                        Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+                        ImageIcon iconoEntropia = new ImageIcon(imagenEscalada);
+
+                        FloatingLabel label = new FloatingLabel("+"+cantidad, iconoEntropia, relativeX, relativeY);
+
+                        layeredPane.add(label, JLayeredPane.POPUP_LAYER);
+                        layeredPane.setComponentZOrder(label, 0);
+                    }
+
+
                 }
             }
         });

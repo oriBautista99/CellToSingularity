@@ -47,7 +47,7 @@ public class ResourcePanel extends JPanel {
 
     }
 
-    private void refresh(GameController gameController) {
+    public void refresh(GameController gameController) {
 
         Jugador jugador = gameController.getJugador();
         double entropia = jugador.getCantidadRecurso("Entropia");
