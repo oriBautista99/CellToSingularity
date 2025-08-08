@@ -5,6 +5,7 @@ import java.util.*;
 
 public class ElementoEvolutivo {
     private String nombre;
+    private String descripcion;
     private Map<String, Double> costo; // Recurso → cantidad
     private List<String> requisitos; // Nombres de otros elementos requeridos
     private double produccionBase;
@@ -19,10 +20,11 @@ public class ElementoEvolutivo {
 
     public ElementoEvolutivo() {}
 
-    public ElementoEvolutivo(String nombre, Map<String, Double> costo, List<String> requisitos,
+    public ElementoEvolutivo(String nombre,String descripcion, Map<String, Double> costo, List<String> requisitos,
                              double produccion, String tipoRecursoProducido,
                              int nivelMax, int tiempoDesbloqueo) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.costo = costo;
         this.requisitos = requisitos;
         this.produccionBase = produccion;
@@ -53,6 +55,13 @@ public class ElementoEvolutivo {
         return nombre;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
     public EstadoElemento getEstado() {
         return estado;
     }

@@ -1,10 +1,7 @@
 package view;
 
 import controller.GameController;
-import view.panel.ClickButtonPanel;
-import view.panel.EvolutionTreePanel;
-import view.panel.ResourcePanel;
-import view.panel.ShopPanel;
+import view.panel.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +18,12 @@ public class MainFrame extends JFrame {
         add(resourceBar, BorderLayout.NORTH);
 
         add(new EvolutionTreePanel(gameController), BorderLayout.CENTER);
+
+//        JPanel rightPanel = new JPanel(new BorderLayout());
+//        DescriptionPanel descriptionPanel = new DescriptionPanel();
+//        gameController.setDescriptionPanel(descriptionPanel);
+//        rightPanel.add(descriptionPanel, BorderLayout.SOUTH);
+//        add(rightPanel);
 
         //add(new ShopPanel(gameController), BorderLayout.CENTER);
 

@@ -39,7 +39,7 @@
                 "tipoRecursoProducido": "Entropia",
                 "requisitos": ["ADN"],
                 "nivelMax": 4,
-                "imagenPath" : "img/reproduccion.png",
+                "imagenPath" : "img/nervioso.png",
                 "estado": "BLOCKED",
                 "descripcion": "Proceso que permite a las células dividirse y multiplicarse.",
                 "hijos": [

@@ -3,6 +3,7 @@ package controller;
 import model.*;
 import model.enums.EstadoElemento;
 import util.TimerManager;
+import view.panel.DescriptionPanel;
 import view.panel.ResourcePanel;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -134,5 +135,8 @@ public class GameController {
         }
 
         return raizVisual;
+    }
+
+    public void setDescriptionPanel(DescriptionPanel descriptionPanel) {
     }
 }
