@@ -8,6 +8,7 @@
     "nivelMax": 5,
     "imagenPath" : "img/molecula.png",
     "estado": "BLOCKED",
+    "descripcion": "Moléculas base formadas por carbono, esenciales para la vida.",
     "hijos": [
       {
         "nombre": "Célula Primordial",
@@ -18,6 +19,7 @@
         "nivelMax": 5,
         "imagenPath" : "img/celula.png",
         "estado": "BLOCKED",
+        "descripcion": "La primera unidad estructural de la vida.",
         "hijos": [
           {
             "nombre": "ADN",
@@ -28,6 +30,7 @@
             "nivelMax": 3,
             "imagenPath" : "img/adn.png",
             "estado": "BLOCKED",
+            "descripcion": "Molécula que almacena la información genética.",
             "hijos": [
               {
                 "nombre": "Reproducción Celular",
@@ -38,6 +41,7 @@
                 "nivelMax": 4,
                 "imagenPath" : "img/reproduccion.png",
                 "estado": "BLOCKED",
+                "descripcion": "Proceso que permite a las células dividirse y multiplicarse.",
                 "hijos": [
                   {
                     "nombre": "Organismo Multicelular",
@@ -48,6 +52,7 @@
                     "nivelMax": 5,
                     "imagenPath" : "img/molecula.png",
                     "estado": "BLOCKED",
+                    "descripcion": "Ser vivo compuesto por más de una célula.",
                     "hijos": [
                       {
                         "nombre": "Sistema Nervioso",
@@ -58,6 +63,7 @@
                         "nivelMax": 4,
                         "imagenPath" : "img/nervioso.png",
                         "estado": "BLOCKED",
+                        "descripcion": "Red de células especializadas para coordinar respuestas.",
                         "hijos": [
                           {
                             "nombre": "Cerebro Primitivo",
@@ -68,6 +74,7 @@
                             "nivelMax": 4,
                             "imagenPath" : "img/cerebro.png",
                             "estado": "BLOCKED",
+                            "descripcion": "Centro básico de control en organismos tempranos.",
                             "hijos": [
                               {
                                 "nombre": "Homo Habilis",
@@ -78,6 +85,7 @@
                                 "nivelMax": 3,
                                 "imagenPath" : "img/molecula.png",
                                 "estado": "BLOCKED",
+                                "descripcion": "Primer representante del género Homo con uso de herramientas.",
                                 "hijos": [
                                   {
                                     "nombre": "Homo Sapiens",
@@ -88,6 +96,7 @@
                                     "nivelMax": 3,
                                     "imagenPath" : "img/molecula.png",
                                     "estado": "BLOCKED",
+                                    "descripcion": "Especie humana moderna, capaz de pensamiento abstracto.",
                                     "hijos": [
                                       {
                                         "nombre": "Lenguaje Complejo",
@@ -98,6 +107,7 @@
                                         "nivelMax": 3,
                                         "imagenPath" : "img/lenguaje.png",
                                         "estado": "BLOCKED",
+                                        "descripcion": "Sistema avanzado de comunicación simbólica.",
                                         "hijos": [
                                           {
                                             "nombre": "Agricultura",
@@ -108,6 +118,7 @@
                                             "nivelMax": 3,
                                             "imagenPath" : "img/agricultura.png",
                                             "estado": "BLOCKED",
+                                            "descripcion": "Práctica de cultivar alimentos y domesticar animales.",
                                             "hijos": [
                                               {
                                                 "nombre": "Revolución Industrial",
@@ -118,6 +129,7 @@
                                                 "nivelMax": 3,
                                                 "imagenPath" : "img/industria.png",
                                                 "estado": "BLOCKED",
+                                                "descripcion": "Transición hacia procesos de producción mecanizados.",
                                                 "hijos": [
                                                   {
                                                     "nombre": "Computadora",
@@ -128,6 +140,7 @@
                                                     "nivelMax": 3,
                                                     "imagenPath" : "img/computer.png",
                                                     "estado": "BLOCKED",
+                                                    "descripcion": "Máquina capaz de realizar cálculos y procesos lógicos.",
                                                     "hijos": [
                                                       {
                                                         "nombre": "Internet",
@@ -138,6 +151,7 @@
                                                         "nivelMax": 3,
                                                         "imagenPath" : "img/internet.png",
                                                         "estado": "BLOCKED",
+                                                        "descripcion":  "Red global de comunicación e intercambio de datos.",
                                                         "hijos": [
                                                           {
                                                             "nombre": "Inteligencia Artificial",
@@ -148,6 +162,7 @@
                                                             "nivelMax": 3,
                                                             "imagenPath" : "img/ia.png",
                                                             "estado": "BLOCKED",
+                                                            "descripcion": "Simulación de inteligencia humana por máquinas.",
                                                             "hijos": [
                                                               {
                                                                 "nombre": "Singularidad",
@@ -158,6 +173,7 @@
                                                                 "nivelMax": 1,
                                                                 "imagenPath" : "img/singularity.png",
                                                                 "estado": "BLOCKED",
+                                                                "descripcion": "Punto teórico donde la tecnología supera la inteligencia humana.",
                                                                 "hijos": []
                                                               }
                                                             ]
