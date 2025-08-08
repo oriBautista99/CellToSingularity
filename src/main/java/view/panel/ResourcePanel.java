@@ -14,6 +14,8 @@ public class ResourcePanel extends JPanel {
 
     private Map<String, JLabel> etiquetasRecursos = new HashMap<>();
     private Map<String, ImageIcon> iconos;
+
+
     private final JLabel productionLabel= new JLabel();
     private final JLabel levelLabel     = new JLabel();
     private final JLabel entropiaLabel = new JLabel();
@@ -23,7 +25,7 @@ public class ResourcePanel extends JPanel {
     public ResourcePanel(GameController gameController) {
 
         setLayout(new FlowLayout(FlowLayout.CENTER,30,10));
-        setBackground(Color.DARK_GRAY);
+        setBackground(new Color(0,9,39));
 
         recursoProd.setLayout(new BoxLayout(recursoProd, BoxLayout.Y_AXIS));
         recursoProd.setOpaque(false);
@@ -32,7 +34,7 @@ public class ResourcePanel extends JPanel {
 
         add(recursoProd);
         //add(productionLabel);
-        add(levelLabel);
+        //add(levelLabel); // ver cantidad de clicks
 
         // Cargar íconos desde resources
         iconos = new HashMap<>();
@@ -65,6 +67,7 @@ public class ResourcePanel extends JPanel {
         // falta condicionar para las ideas
 
         System.out.println("SE ACTUALIZA LA ENTROPIA - refresh - ResourcePanel");
+        //System.out.println("E:" + entropia);
     }
 
     private void actualizarEtiqueta(JLabel label, String tipo, double cantidad) {

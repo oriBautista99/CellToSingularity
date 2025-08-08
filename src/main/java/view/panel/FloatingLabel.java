@@ -15,16 +15,16 @@ public class FloatingLabel extends JLabel {
         // Configurar el JLabel
         if (icono != null) {
             setIcon(icono);
-            setHorizontalTextPosition(SwingConstants.RIGHT); // Texto a la derecha del icono
-            setIconTextGap(5); // Espacio entre icono y texto
+            setHorizontalTextPosition(SwingConstants.RIGHT);
+            setIconTextGap(5);
         }
 
         setFont(new Font("Arial", Font.BOLD, 16));
-        setForeground(new Color(100, 100, 100, 255)); // Color con alpha completo
+        setForeground(new Color(205, 227, 242, 255));
         setOpaque(false);
-        setBounds(x, y, 150, 40); // Más ancho para que el icono y texto quepan bien
+        setBounds(x, y, 150, 40);
 
-        // Animación: mover hacia arriba y desvanecer
+
         timer = new Timer(20, (ActionEvent e) -> {
             y -= 2;
             setLocation(x, y);

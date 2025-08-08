@@ -46,6 +46,7 @@ public class EvolucionTreeCellRenderer extends DefaultTreeCellRenderer {
 
             // Texto (nombre del elemento)
             JLabel label = new JLabel(elemento.getNombre());
+            label.setForeground(new Color(225,238,245));
             label.setAlignmentX(Component.CENTER_ALIGNMENT);
             label.setFont(new Font("Arial", Font.BOLD, 14));
             panel.add(label);
@@ -53,7 +54,8 @@ public class EvolucionTreeCellRenderer extends DefaultTreeCellRenderer {
             // Costo del elemento
             JLabel costo = new JLabel();
             costo.setAlignmentX(Component.CENTER_ALIGNMENT);
-            costo.setFont(new Font("Arial", Font.PLAIN, 12));
+            costo.setForeground(new Color(0,12,39));
+            costo.setFont(new Font("Arial", Font.BOLD, 12));
 
             // Mostrar costos
             if (elemento.getCosto() != null && !elemento.getCosto().isEmpty()) {
@@ -67,13 +69,13 @@ public class EvolucionTreeCellRenderer extends DefaultTreeCellRenderer {
             // Fondo según el estado
             switch (elemento.getEstado()) {
                 case ACTIVE:
-                    panel.setBackground(new Color(200, 255, 200)); // Verde claro
+                    panel.setBackground(new Color(200, 255, 200, 127)); // Verde claro
                     break;
                 case ENABLED:
-                    panel.setBackground(new Color(200, 200, 255)); // Azul claro
+                    panel.setBackground(new Color(200, 200, 255, 127)); // Azul claro
                     break;
                 default:
-                    panel.setBackground(new Color(230, 230, 230)); // Gris claro para "BLOCKED"
+                    panel.setBackground(new Color(230, 230, 230, 127)); // Gris claro para "BLOCKED"
                     break;
             }
 
@@ -84,7 +86,6 @@ public class EvolucionTreeCellRenderer extends DefaultTreeCellRenderer {
             return panel;
         }
 
-        // Por defecto (no es un ElementoEvolutivo)
         return super.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row, hasFocus);
     }
 

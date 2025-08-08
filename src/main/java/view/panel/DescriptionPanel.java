@@ -9,14 +9,21 @@ public class DescriptionPanel extends JPanel {
     public DescriptionPanel() {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createTitledBorder("Descripción"));
-        descriptionArea = new JTextArea(4, 20); // Altura de 4 líneas
+        //setPreferredSize(new Dimension(300, 100));
+
+        descriptionArea = new JTextArea(2,100); // Altura de 4 líneas
         descriptionArea.setLineWrap(true);
         descriptionArea.setWrapStyleWord(true);
         descriptionArea.setEditable(false);
-        add(new JScrollPane(descriptionArea), BorderLayout.CENTER);
+        descriptionArea.setFont(new Font("Arial", Font.PLAIN, 16));
+        JScrollPane scrollPane = new JScrollPane(descriptionArea);
+        add(scrollPane, BorderLayout.CENTER);
     }
 
     public void setDescripcion(String descripcion) {
         descriptionArea.setText(descripcion != null ? descripcion : "Sin descripción.");
+        descriptionArea.setCaretPosition(0);
+        revalidate();
+        repaint();
     }
 }
